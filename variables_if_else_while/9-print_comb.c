@@ -1,7 +1,7 @@
 #include<stdio.h>
 /**
-* main -Write a program that prints all single digit numbers of base 1
-* starting from 0,followed by a new line.
+* main -Write a program that prints all possible combinations
+* of single-digit numbers.
 *
 * Return: 0
 */
