@@ -12,7 +12,7 @@ int main(void)
 
 	while (a < 123)
 		putchar (a++);
-	while (A < 90)
+	while (A < 91)
 		putchar (A++);
 	putchar ('\n');
 	return (0);
