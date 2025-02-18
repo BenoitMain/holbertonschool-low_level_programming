@@ -7,11 +7,11 @@
 */
 int main(void)
 {
-	char a = a;
+	char a = 97;
 
-	while (a < 'z')
+	while (a < 123)
 	{
-		if (a == 'e' || a == 'q')
+		if (a == 101 || a == 113)
 		{
 			a++;
 			continue;
