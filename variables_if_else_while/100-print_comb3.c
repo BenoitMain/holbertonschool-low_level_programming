@@ -21,6 +21,7 @@ int main(void)
 		if (a < 89)
 		{
 			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
