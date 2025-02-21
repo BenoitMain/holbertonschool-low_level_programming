@@ -11,14 +11,14 @@ int main(void)
 
 	for (a = 0 ; a <= 89 ; a++)
 	{
-		if ((a / 10) != (a % 10))
+		if ((a / 10) < (a % 10))
 		{
 			putchar((a / 10) + '0');
 			putchar((a % 10) + '0');
 		}
 		else
 			continue;
-		if (a < 89)
+		if (a != 89)
 		{
 			putchar(',');
 			putchar(' ');
