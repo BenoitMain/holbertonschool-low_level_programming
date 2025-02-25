@@ -38,7 +38,7 @@ int main(void)
 		}
 		if (Numbers == 100)
 		{
-			printf("\n");
+			putchar('\n');
 		}
 	}
 	return (0);
