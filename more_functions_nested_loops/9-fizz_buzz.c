@@ -30,7 +30,8 @@ int main(void)
 		}
 		else if (Numbers == 100)
 		{
-			printf("%s\n", Multiples_Five);
+			printf("%s", Multiples_Five);
+			putchar('\n');
 		}
 		else
 		{
