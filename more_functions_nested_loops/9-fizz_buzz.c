@@ -24,21 +24,17 @@ int main(void)
 		{
 			printf("%s ", Multiples_Three);
 		}
+		else if (Numbers == 100)
+		{
+			printf("%s\n", Multiples_Five);
+		}
 		else if (Numbers % 5 == 0)
 		{
 			printf("%s ", Multiples_Five);
 		}
-		else if (Numbers == 100)
-		{
-			printf("%s", Multiples_Five);
-		}
 		else
 		{
 			printf("%d ", Numbers);
-		}
-		if (Numbers == 100)
-		{
-			putchar('\n');
 		}
 	}
 	return (0);
