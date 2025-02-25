@@ -31,11 +31,14 @@ int main(void)
 		else if (Numbers == 100)
 		{
 			printf("%s", Multiples_Five);
-			putchar('\n');
 		}
 		else
 		{
 			printf("%d ", Numbers);
+		}
+		if (Numbers == 100)
+		{
+			printf("\n");
 		}
 	}
 	return (0);
