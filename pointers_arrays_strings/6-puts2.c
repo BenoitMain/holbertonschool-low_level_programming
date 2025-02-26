@@ -7,7 +7,7 @@
  * Return: VOID
  */
 void puts2(char *str)
-{	
+{
 	int start = 0;
 
 	while (str[start] != '\0')
