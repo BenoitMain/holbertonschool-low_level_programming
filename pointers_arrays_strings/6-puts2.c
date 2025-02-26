@@ -7,14 +7,16 @@
  * Return: VOID
  */
 void puts2(char *str)
-{
-	while (*str != '\0')
+{	
+	int start = 0;
+
+	while (str[start] != '\0')
 	{
-		str++;
-		if ((*str % 2) == 0)
+		if (start % 2 == 0)
 		{
-			_putchar(*str);
+			_putchar(str[start]);
 		}
+		start++;
 	}
 	_putchar('\n');
 }
