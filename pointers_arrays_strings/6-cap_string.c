@@ -10,7 +10,8 @@ int min(int character)
 	return (character == ',' || character == ';' || character == '.'
 	 || character == '!' || character == '?' || character == '"' ||
 	 character == '(' || character == ')' || character ==  '{' ||
-	 character == '}' || character == ' ');
+	 character == '}' || character == ' ' || character == '\t' || 
+	character == '\n');
 }
 /**
  * cap_string - Capitalize the first letter of each word in a string
