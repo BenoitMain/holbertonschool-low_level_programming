@@ -1,19 +1,23 @@
 #include "main.h"
 /**
-*
-*
-*
-*
-*
-*/
+ * min - Check if a character is a separator
+ * @character: The character to check
+ *
+ * Return: 1 if the character is a separator, 0 otherwise
+ */
 int min(int character)
 {
 	return (character == ',' || character == ';' || character == '.'
-	 || character == '!'|| character == '?'|| character == '"'||
-	 character == '(' || character == ')' || character ==  '{'||
+	 || character == '!' || character == '?' || character == '"' ||
+	 character == '(' || character == ')' || character ==  '{' ||
 	 character == '}' || character == ' ');
 }
-
+/**
+ * cap_string - Capitalize the first letter of each word in a string
+ * @cap: The string to capitalize
+ *
+ * Return: A pointer to the modified string
+ */
 char *cap_string(char *cap)
 {
 	char *separator = cap;
