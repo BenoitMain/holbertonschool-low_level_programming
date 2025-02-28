@@ -9,8 +9,8 @@ int min(int character)
 {
 	return (character == ',' || character == ';' || character == '.'
 	 || character == '!' || character == '?' || character == '"' ||
-	 character == '(' || character == ')' || character ==  '{' ||
-	 character == '}' || character == ' ' || character == '\t' || 
+	character == '(' || character == ')' || character ==  '{' ||
+	character == '}' || character == ' ' || character == '\t' ||
 	character == '\n');
 }
 /**
