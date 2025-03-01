@@ -1,14 +1,20 @@
 #include "main.h"
 /**
- * _atoi - ASCII To Integer.
+ * digit - Check character between 0 and 9.
  * @c: Le caractère à vérifier
  *
- * Return: 1 si c est un chiffre, 0 sinon
+ * Return: c.
  */
 int digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
+/**
+ * _atoi - ASCII To Integer.
+ * @s: Le caractère à vérifier
+ *
+ * Return: 1 si c est un chiffre, 0 sinon
+ */
 int _atoi(char *s)
 {
 	int res = 0;
