@@ -11,9 +11,9 @@ int digit(char c)
 }
 int _atoi(char *s)
 {
-    int res = 0;
-    int sign = 1;
-    int digit_found = 0;
+	int res = 0;
+	int sign = 1;
+	int digit_found = 0;
 
 	while (*s)
 	{
@@ -23,8 +23,8 @@ int _atoi(char *s)
 
 			if (res > 214748364 || (res == 214748364 && (*s - '0') > 7))
 			{
-				return (sign == 1) ? 2147483647 : -2147483648;
-			}	
+				return ((sign == 1) ? 2147483647 : -2147483648);
+			}
 			res = res * 10 + (*s - '0');
 		}
 			else if (*s == '-' && !digit_found)
@@ -37,6 +37,6 @@ int _atoi(char *s)
 			}
 		s++;
 	}
-	return res * sign;
+	return (res * sign);
 }
 
