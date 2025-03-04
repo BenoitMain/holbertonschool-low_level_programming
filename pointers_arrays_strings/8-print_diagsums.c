@@ -10,7 +10,8 @@
 void print_diagsums(int *a, int size)
 {
 	int i, j, index;
-	long int somme, somme2 = 0;
+	long int somme = 0;
+	long int somme2 = 0;
 
 	for (i = 0; i < size; i++)
 	{
@@ -24,5 +25,5 @@ void print_diagsums(int *a, int size)
 		index = j * size + (size - 1 - j);
 		somme2 += a[index];
 	}
-	printf("%ld, %ld \n", somme, somme2);
+	printf("%ld, %ld\n", somme, somme2);
 }
