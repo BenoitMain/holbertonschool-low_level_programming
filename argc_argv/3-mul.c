@@ -19,11 +19,12 @@ int main(int argc, char *argv[])
 			multiplication_sum *= atoi(argv[i]);
 		}
 		printf("%d\n", multiplication_sum);
+		return (0);
 	}
 	else
 	{
 		printf("Error\n");
-		return (0);
+		return (1);
 	}
-	return (1);
+	return (0);
 }
