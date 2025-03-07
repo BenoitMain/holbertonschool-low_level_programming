@@ -26,9 +26,13 @@ int _isdigit(int c)
  */
 int number(char *str)
 {
-	int j;
+	int j = 0;
 
-	for (j = 0; str[j] != '\0'; j++)
+	if (str[0] == '-')
+	{
+		j++;
+	}
+	for (; str[j] != '\0'; j++)
 	{
 		if (_isdigit(str[j]) == 0)
 		{
