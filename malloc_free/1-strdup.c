@@ -1,12 +1,29 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 /**
- *strdup - Duplicates a string by creating a new dynamically allocated string.
+ * _size - Calculates the length of a string.
+ * @s: A pointer to the string.
+ *
+ * Return: The length of the string.
+ */
+int _size(char *s)
+{
+	int j = 0;
+
+	while (*s != '\0')
+	{
+		j++;
+		s++;
+	}
+	return (j);
+}
+/**
+ * _strdup - Duplicates a string by creating
+ * a new dynamically allocated string.
  * @str: The input string to be duplicated.
  *
- * Return: if str is NULL.
+ * Return: NULL if size = 0, a pointer to the array, or NULL if it fails.
  */
 char *_strdup(char *str)
 {
@@ -18,7 +35,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	dup = malloc ((strlen(str) + 1) * sizeof (char));
+	dup = malloc((_size(str) + 1) * sizeof(char));
 	if (dup == NULL)
 	{
 		return (NULL);
@@ -28,6 +45,6 @@ char *_strdup(char *str)
 	{
 		dup[i] = str[i];
 	}
-	dup[i] = '\0';
+
 	return (dup);
 }
