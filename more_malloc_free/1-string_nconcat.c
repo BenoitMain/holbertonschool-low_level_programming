@@ -12,6 +12,10 @@ int _size(char *str1)
 {
 	int curseur = 0;
 
+	if (str1 == NULL)
+	{
+		return (0);
+	}
 	while (*str1++)
 	{
 		curseur++;
@@ -20,14 +24,14 @@ int _size(char *str1)
 	return (curseur);
 }
 /**
-* string_nconcat - Concatenates two strings.
-* @s1: First string.
-* @s2: Second string.
-* @n: Number of bytes from s2 to concatenate.
-*
-* Return: Pointer to newly allocated space in memory containing s1,
-*         followed by the first n bytes of s2, and null terminated.
-*/
+ * string_nconcat - Concatenates two strings.
+ * @s1: First string.
+ * @s2: Second string.
+ * @n: Number of bytes from s2 to concatenate.
+ *
+ * Return: Pointer to newly allocated space in memory containing s1,
+ *         followed by the first n bytes of s2, and null terminated.
+ */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i, j, s1_lenght, s2_lenght, total_lenght;
@@ -35,7 +39,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s1_lenght = _size(s1);
 	s2_lenght = _size(s2);
-	total_lenght = s1_lenght + s2_lenght + 1;
 
 	if (s1 == NULL)
 	{
@@ -49,7 +52,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		n = s2_lenght;
 	}
-
+	total_lenght = s1_lenght + n + 1;
 	pointer = malloc(total_lenght * sizeof(char));
 	if (pointer == NULL)
 	{
