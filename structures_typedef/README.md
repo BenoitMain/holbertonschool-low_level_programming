@@ -1,6 +1,6 @@
 <div align="center"><img src="https://github.com/ksyv/holbertonschool-web_front_end/blob/main/baniere_holberton.png"></div>
 
-# C Programming Fundamentals 💻
+# C - Structures, typedef 💻
 
 ## Resources 📚
 
