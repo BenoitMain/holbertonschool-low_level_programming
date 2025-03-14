@@ -11,6 +11,8 @@ a.out
 !*.c
 !*.h
 !README.md
+100-intel
 
 # Ne pas ignorer les dossiers (pour permettre le suivi des fichiers dans les dossiers)
 !*/
+100-intel
