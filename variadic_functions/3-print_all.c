@@ -2,94 +2,49 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * ctype - Prints character type
- * @args: A va_list containing the character to print
- *
- * Description: This function extracts a character from the va_list
- * and prints it using printf.
- */
-void ctype(va_list args)
-{
-	printf("%c", va_arg(args, int));
-}
-/**
- * itype - Prints integer type
- * @args: A va_list containing the integer to print
- *
- * Description: This function extracts an integer from the va_list
- * and prints it using printf.
- */
-void itype(va_list args)
-{
-	printf("%d", va_arg(args, int));
-}
-/**
- * ftype - Prints float type
- * @args: A va_list containing the float to print
- *
- * Description: This function extracts a float (as a double) from the va_list
- * and prints it using printf.
- */
-void ftype(va_list args)
-{
-	printf("%f", va_arg(args, double));
-}
-/**
- * stype - Prints string type
- * @args: A va_list containing the string to print
- *
- * Description: This function extracts a string from the va_list and prints it.
- * If the string is NULL, it prints "(nil)" instead.
- */
-void stype(va_list args)
-{
-	char *str = va_arg(args, char *);
-
-	if (str == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", str);
-}
-/**
- * print_all - Prints values based on format specifiers
- * @format: List of types of arguments passed to the function
- *
- * Return: VOID.
+ * print_all - imprime divers types arguments
+ * @format: chaine de caractere avec les types arguments
  */
 void print_all(const char *const format, ...)
 {
-	print_type argtype[] = {
-	    {'c', ctype},
-	    {'i', itype},
-	    {'f', ftype},
-	    {'s', stype},
-	    {0, NULL}};
+	va_list args;
+	unsigned int i = 0;
+	char *str;
+	int flag = 0;
 
-	va_list fonction;
-	char *separator = " ";
-	unsigned int index = 0;
-	unsigned int j;
+	va_start(args, format);
 
-	va_start(fonction, format);
-
-	while (format && format[index] != '\0')
+	while (format && format[i])
 	{
-		j = 0;
-		while (argtype[j].type != 0)
+		if (flag && (format[i] == 'c' || format[i] == 'i' ||
+			     format[i] == 'f' || format[i] == 's'))
 		{
-			if (format[index] == argtype[j].type)
-			{
-				printf("%s", separator);
-				argtype[j].func(fonction);
-				separator = ", ";
-				break;
-			}
-			j++;
+			printf(", ");
 		}
-		index++;
+		switch (format[i])
+		{
+		case 'c':
+			printf("%c", va_arg(args, int));
+			flag = 1;
+			break;
+		case 'i':
+			printf("%d", va_arg(args, int));
+			flag = 1;
+			break;
+		case 'f':
+			printf("%f", va_arg(args, double));
+			flag = 1;
+			break;
+		case 's':
+			str = va_arg(args, char *);
+			printf("%s", str ? str : "(nil)");
+			flag = 1;
+			break;
+		default:
+			break;
+		}
+		i++;
 	}
-	va_end(fonction);
-	putchar('\n');
+	printf("\n");
+	va_end(args);
 }
