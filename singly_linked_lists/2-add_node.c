@@ -3,12 +3,12 @@
 #include <string.h>
 #include <stdio.h>
 /**
- * str_lenght - Calculates the length of a string.
+ * str_length - Calculates the length of a string.
  * @a: Pointer to the string whose length is to be calculated.
  *
  * Return: The length of the string (number of characters).
  */
-int str_lenght(const char *a)
+int str_length(const char *a)
 {
 	int i = 0;
 
@@ -28,7 +28,7 @@ int str_lenght(const char *a)
 list_t *add_node(list_t **head, const char *str)
 {
 	char *duplicated;
-	list_t *add_node;
+	list_t *new_node;
 
 	if (str == NULL)
 	{
@@ -36,16 +36,21 @@ list_t *add_node(list_t **head, const char *str)
 	}
 
 	duplicated = strdup(str);
-
-	add_node = malloc(sizeof(list_t));
-	if (add_node == NULL)
+	if (duplicated == NULL)
 	{
 		return (NULL);
 	}
-	add_node->str = duplicated;
-	add_node->len = str_lenght(duplicated);
-	add_node->next = *head;
-	*head = add_node;
 
-	return (add_node);
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
+	{
+		free(duplicated);
+		return (NULL);
+	}
+	new_node->str = duplicated;
+	new_node->len = str_length(duplicated);
+	new_node->next = *head;
+	*head = new_node;
+
+	return (new_node);
 }
