@@ -1,5 +1,7 @@
 <div align="center"><img src="https://github.com/ksyv/holbertonschool-web_front_end/blob/main/baniere_holberton.png"></div>
 
+<div align="left"><img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet.project.files/holbertonschool-low_level_programming/229/giphy-3.gif"></div><br>
+
 # Linked Lists Project
 
 Welcome to the **Linked Lists Project**! This repository is dedicated to mastering the concepts of linked lists in C programming. Below, you'll find all the necessary information, requirements, and learning objectives for this project.
