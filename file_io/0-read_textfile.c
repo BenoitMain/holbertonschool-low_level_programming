@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include "main.h"
 /**
- * read_textfile - Reads a text file and prints it to the POSIX standard output.
+ * read_textfile - Reads text file and prints it to the POSIX standard output.
  * @filename: Pointer to the name of the file to be read.
  * @letters: Number of letters to read and print.
  *
@@ -40,7 +40,7 @@ ssize_t var_write, var_read;
 		close(fd);
 		return (0);
 	}
-	var_write = write(1, buffer, var_read);
+	var_write = write(STDOUT_FILENO, buffer, var_read);
 	if (var_write == -1 || var_write != var_read)
 	{
 		free(buffer);
@@ -49,5 +49,5 @@ ssize_t var_write, var_read;
 	}
 	free(buffer);
 	close(fd);
-	return(var_write);
+	return (var_write);
 }
