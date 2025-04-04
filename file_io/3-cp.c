@@ -65,13 +65,6 @@ int copy_file(const char *file_from, const char *file_to)
 			exit(99);
 		}
 	}
-	if (var_read == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		close_fd(fd_from);
-		close_fd(fd_to);
-		exit(98);
-	}
 
 	close_fd(fd_from);
 	close_fd(fd_to);
