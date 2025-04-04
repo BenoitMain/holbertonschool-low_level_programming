@@ -4,6 +4,22 @@
 #include <unistd.h>
 #include "main.h"
 /**
+ * close_fd - Attempts to close a file descriptor and exits with code 100 if
+ *failure.
+ * @fd: The file descriptor to be closed.
+ *
+ * This function ensures that the file descriptor is properly closed. If not,
+ * it prints an error message and exits with code 100.
+ */
+void close_fd(int fd)
+{
+	if (fd != -1 && close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+/**
  * copy_file - Copies the content of one file to another.
  * @file_from: The name of the source file.
  * @file_to: The name of the destination file.
@@ -12,7 +28,7 @@
  */
 int copy_file(const char *file_from, const char *file_to)
 {
-	int fd_from, fd_to;
+	int fd_from = -1, fd_to = -1;
 	char buffer[1024];
 	ssize_t var_read, var_write;
 
@@ -31,22 +47,23 @@ int copy_file(const char *file_from, const char *file_to)
 	while ((var_read = read(fd_from, buffer, 1024)) > 0)
 	{
 		var_write = write(fd_to, buffer, var_read);
-		if (var_write == -1)
+		if (var_write == -1 || var_write != var_read)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
-			close(fd_from);
-			close(fd_to);
+			close_fd(fd_from);
+			close_fd(fd_to);
 			exit(99);
 		}
 	}
 	if (var_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		close(fd_from);
+		close_fd(fd_from);
+		close_fd(fd_to);
 		exit(98);
 	}
-	close(fd_from);
-	close(fd_to);
+	close_fd(fd_from);
+	close_fd(fd_to);
 	return (0);
 }
 /**
