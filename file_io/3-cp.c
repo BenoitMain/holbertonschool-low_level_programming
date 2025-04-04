@@ -65,13 +65,6 @@ int copy_file(const char *file_from, const char *file_to)
 			close_fd(fd_to);
 			exit(99);
 		}
-		if (var_write == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
-			close_fd(fd_from);
-			close_fd(fd_to);
-			exit(99);
-		}
 	}
 
 	close_fd(fd_from);
