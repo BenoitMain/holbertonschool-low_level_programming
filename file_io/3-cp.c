@@ -47,12 +47,19 @@ int copy_file(const char *file_from, const char *file_to)
 	while ((var_read = read(fd_from, buffer, 1024)) > 0)
 	{
 		var_write = write(fd_to, buffer, var_read);
-		if (var_write == -1 || var_write != var_read)
+		if (var_write != var_read)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
 			close_fd(fd_from);
 			close_fd(fd_to);
 			exit(99);
+		}
+		if (var_write == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
+			close_fd(fd_from);
+			close_fd(fd_to);
+			exit(98);
 		}
 	}
 	if (var_read == -1)
